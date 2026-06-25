@@ -40,9 +40,7 @@ public class MenuUtama {
         scanner.close();
     }
 
-    // =============================================
-    // MENU UTAMA
-    // =============================================
+   
     private static void tampilkanMenu() {
         System.out.println("\n┌─────────────────────────────┐");
         System.out.println("│           MENU UTAMA        │");
@@ -55,11 +53,9 @@ public class MenuUtama {
         System.out.println("└─────────────────────────────┘");
     }
 
-    // =============================================
-    // FITUR 1: LIHAT SEMUA BUKU
-    // =============================================
+
     private static void lihatSemuaBuku() {
-        System.out.println("\n📚 DAFTAR SEMUA BUKU:");
+        System.out.println("\n DAFTAR SEMUA BUKU:");
         System.out.println("─".repeat(60));
 
         List<Buku> daftar = proses.ambilSemuaBuku();
@@ -73,11 +69,9 @@ public class MenuUtama {
         System.out.println("─".repeat(60));
     }
 
-    // =============================================
-    // FITUR 2: CARI BY KATEGORI
-    // =============================================
+
     private static void cariBukuKategori() {
-        System.out.println("\n🔍 CARI BUKU BERDASARKAN KATEGORI");
+        System.out.println("\n CARI BUKU BERDASARKAN KATEGORI");
         System.out.println("Kategori tersedia: FIKSI | NON_FIKSI | SAINS | SEJARAH");
         System.out.print("Masukkan kategori: ");
         String input = scanner.nextLine().trim().toUpperCase();
@@ -86,7 +80,7 @@ public class MenuUtama {
             Kategori kategori = Kategori.valueOf(input);
             List<Buku> hasil  = proses.cariBerdasarKategori(kategori);
 
-            System.out.println("\n📂 Hasil kategori [" + kategori + "]:");
+            System.out.println("\n Hasil kategori [" + kategori + "]:");
             System.out.println("─".repeat(60));
             if (hasil.isEmpty()) {
                 System.out.println("   (Tidak ada buku di kategori ini)");
@@ -96,20 +90,18 @@ public class MenuUtama {
             System.out.println("─".repeat(60));
 
         } catch (IllegalArgumentException e) {
-            System.out.println("⚠️  Kategori \"" + input + "\" tidak dikenal.");
+            System.out.println("  Kategori \"" + input + "\" tidak dikenal.");
         }
     }
 
-    // =============================================
-    // FITUR 3: CARI BY JUDUL
-    // =============================================
+    
     private static void cariBukuJudul() {
-        System.out.println("\n🔍 CARI BUKU BERDASARKAN JUDUL");
+        System.out.println("\n CARI BUKU BERDASARKAN JUDUL");
         System.out.print("Masukkan kata kunci judul: ");
         String keyword    = scanner.nextLine().trim();
         List<Buku> hasil  = proses.cariBerdasarJudul(keyword);
 
-        System.out.println("\n📖 Hasil pencarian \"" + keyword + "\":");
+        System.out.println("\n Hasil pencarian \"" + keyword + "\":");
         System.out.println("─".repeat(60));
         if (hasil.isEmpty()) {
             System.out.println("   (Tidak ada buku yang cocok)");
@@ -119,9 +111,7 @@ public class MenuUtama {
         System.out.println("─".repeat(60));
     }
 
-    // =============================================
-    // FITUR 4: BELI BUKU
-    // =============================================
+    
     private static void beliBuku() {
         System.out.println("\nBELI BUKU");
         System.out.println("─".repeat(60));
@@ -140,16 +130,14 @@ public class MenuUtama {
         System.out.println("─".repeat(60));
     }
 
-    // =============================================
-    // HELPER: Baca input angka dengan validasi
-    // =============================================
+
     private static int bacaAngka(String prompt) {
         while (true) {
             System.out.print(prompt);
             try {
                 return Integer.parseInt(scanner.nextLine().trim());
             } catch (NumberFormatException e) {
-                System.out.println("⚠️  Masukkan angka yang valid!");
+                System.out.println("  Masukkan angka yang valid!");
             }
         }
     }
